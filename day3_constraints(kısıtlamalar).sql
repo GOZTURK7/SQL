@@ -103,6 +103,14 @@
     INSERT INTO notlar VALUES ('125', 'tarih',90);
 	INSERT INTO notlar VALUES ('126', 'Matematik',90); 
     
+    delete from notlar where talebe_id = '123';
+    delete from talebeler where id='124';
+    
+    
+    select * from talebeler;
+    select * from notlar;
+    
+    
     drop table talebeler;
     
     

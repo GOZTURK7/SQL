@@ -264,9 +264,10 @@ select * from personel where maas like '_____'; -- maaş beş haneli olanlar get
 /* -----------------------------------------------------------------------------
   ORNEK29: a veya s ile başlayan kelimelerin tüm bilgilerini listeleyiniz.
 -----------------------------------------------------------------------------*/ 
-select * from kelimeler where regexp_like(kelime, '^[as]'); -- başnda a veya s harfi incase sensitive olarak olan tüm kelimeleri getirir
+select * from kelimeler where regexp_like(kelime,'^[as]'); -- başnda a veya s harfi incase sensitive olarak olan tüm kelimeleri getirir
 -- 2. YOL '^a|^s'
  
+ drop table kelimeler;
  
 /* -----------------------------------------------------------------------------
   ORNEK30: içerisinde en az 2 adet oo barıdıran kelimelerin tüm bilgilerini  YENİ KONU !!!
