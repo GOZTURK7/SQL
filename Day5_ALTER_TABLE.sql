@@ -24,8 +24,70 @@ USE sys;
     INSERT INTO personel VALUES(456789012, 'Mehmet Ozturk', 'Izmir', 6000, 'Ford');
     INSERT INTO personel VALUES(567890123, 'Mehmet Ozturk', 'Ankara', 7000, 'Tofas');
     INSERT INTO personel VALUES(456715012, 'Veli Sahin', 'Ankara', 4500, 'Ford');
+     
+     select * from personel;
     
-    select * from personel;
+    /* -----------------------------------------------------------------------------
+  ORNEK1: personel tablosuna ulke_isim adinda ve default degeri 'Turkiye' olan 
+  yeni bir sutun ekleyiniz.
+------------------------------------------------------------------------------*/ 
+    alter table personel
+    add ulke_isim varchar(20) default 'TURKİYE';
+    
+    
+      
+/* -----------------------------------------------------------------------------
+  ORNEK2: personel tablosuna cinsiyet Varchar2(20) ve yas Number(3) seklinde 
+  yeni sutunlar ekleyiniz.
+------------------------------------------------------------------------------*/  
+    ALTER TABLE personel
+    add (cinsiyet varchar(20), yas int);
+    
+    
+/* -----------------------------------------------------------------------------
+  ORNEK3: personel tablosundan sirket sutununu siliniz. 
+------------------------------------------------------------------------------*/ 
+alter table personel
+drop column sirket;
+
+select * from personel;
+/* -----------------------------------------------------------------------------
+  ORNEK4: personel tablosundaki ulke_isim sutununun adini ulke_adi olarak 
+  degistiriniz. 
+------------------------------------------------------------------------------*/  
+ alter table personel
+ rename column ulke_isim to ulke_adi;
+    
+/* -----------------------------------------------------------------------------
+  ORNEK5: personel tablosunun adini isciler olarak degistiriniz. 
+------------------------------------------------------------------------------*/ 
+alter table personel rename to isciler; 
+  
+  select * from isciler;
+/* -----------------------------------------------------------------------------
+  ORNEK6: isciler tablosundaki ulke_adi sutununa NOT NULL kisitlamasi ekleyiniz
+  ve veri tipini VARCHAR(30) olarak değiştiriniz. 
+------------------------------------------------------------------------------*/ 
+    alter table isciler
+    modify ulke_adi varchar(30) not null;
+    
+    -- =======================
+  -- maas limit kisitlamasi ekle
+  
+  alter table isciler add constraint check (maas >= 3500);
+     -- Maas alt limit kisitlamasi atadik.
+    -- kisitlama atadiktan sonra maasin 3500 altinda olmasi sebebiyle
+    -- alttaki veriyi giremeyiz 
+    INSERT INTO isciler VALUES(123452310, 'Hatice Sahin', 'Bursa', 3000, null);
+    
+    
+    
+    
+    
+    
+    
+    
+
     
     
     
